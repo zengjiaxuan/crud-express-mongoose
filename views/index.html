@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>crud-express</title>
+</head>
+
+<body>
+	<h1>coming soon</h1>
+	<ul>
+		{{each fruits}}
+		<li>{{$value}} <span>删除</span></li>
+		{{/each}}
+	</ul>
+	<table>
+		<thead>
+			<tr>
+				<td>序号</td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>年龄</td>
+				<td>爱好</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{ each students }}
+			<tr>
+				<td>{{ $index + 1 }}</td>
+				<td>{{ $value.name }}</td>
+				<td>{{ $value.gender }}</td>
+				<td>{{ $value.age }}</td>
+				<td>{{ $value.hobbies}}</td>
+				<td>
+					<a href="/edit?id={{$value.id}}&name={{$value.name}}&gender={{$value.gender}}&age={{$value.age}}&hobbies={{$value.hobbies}}">编辑</a>/
+					<a href="/delete?id={{$value.id}}">删除</a>
+				</td>
+			</tr>
+			{{ /each }}
+		</tbody>
+	</table>
+	<hr>
+	<form action="/" method="POST">
+		<label for="">姓名：</label>
+		<input type="text" name="name">
+		<label for="">性别</label>
+		<input type="radio" name="gender" checked = "checked" value="男"> 男
+		<input type="radio" name="gender" value="女"> 女
+		<label for="">年龄：</label>
+		<input type="text" name="age">
+		<label for="">爱好：</label>
+		<input type="text" name="hobbies">
+		<button type="submit">提交</button>
+	</form>
+</body>
+
+</html>
